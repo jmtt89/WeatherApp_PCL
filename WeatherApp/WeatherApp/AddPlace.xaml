@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApp.AddPlace">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                Text="Agrega una nueva ciudad a la lista de estaciones"
+                HorizontalOptions="CenterAndExpand" />
+            <SearchBar
+                x:Name="SearchCity"
+                Margin="20"
+                Placeholder="Nombre de la ciudad"
+                SearchButtonPressed="SearchCity_SearchButtonPressed"/>
+
+            <ListView 
+                IsVisible="True"
+                x:Name="CitiesResult"
+                SeparatorVisibility="Default"
+                HasUnevenRows="true"
+                ItemsSource="{Binding Cities}">
+                <ListView.Header>
+                    <Label
+                        Text="Ciudades encontradas"
+                        FontSize="32"
+                        VerticalOptions="FillAndExpand" 
+                        VerticalTextAlignment="Center" />
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Padding="15,10" 
+                                HorizontalOptions="FillAndExpand">
+                                <Label 
+                                    VerticalOptions="FillAndExpand" 
+                                    VerticalTextAlignment="Center" 
+                                    Text="{Binding Name}" 
+                                    FontSize="24"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

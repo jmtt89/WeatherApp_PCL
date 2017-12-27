@@ -5,9 +5,21 @@
              x:Class="WeatherApp.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="City"/>
+            <Button 
+                x:Name="GetInfo" 
+                Text="Recuperar Informacion"
+                Clicked="GetInfo_Clicked"/>
+            <Image
+                x:Name="Icon"
+                WidthRequest="200"
+                HeightRequest="200"
+                HorizontalOptions="Center"/>
+            <Label 
+                x:Name="Result" 
+                Text="Resultado"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

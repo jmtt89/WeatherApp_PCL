@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WeatherApp.MasterDetailPage1Master"
+    Title="Master">
+    <StackLayout>
+        <ListView 
+            x:Name="MenuItemsListView"
+            SeparatorVisibility="None"
+            HasUnevenRows="true"
+            ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <Grid BackgroundColor="#03A9F4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+
+                    <Label 
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        x:Name="Location"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        FontSize="35"/>
+
+                    <Button
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        x:Name="Add"
+                        Text="+"
+                        Clicked="Add_ClickedAsync"/>
+
+                    <StackLayout
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Orientation="Horizontal">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            x:Name="Temperature"
+                            Style="{DynamicResource SubtitleStyle}"/>
+                        <Image
+                            x:Name="Icon"
+                            WidthRequest="65"
+                            HeightRequest="65"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    
+
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout 
+                            Padding="15,10" 
+                            Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand">
+                            <Label
+                                Text="{Binding Country}"
+                                FontSize="24"/>
+
+                            <Label
+                                Text=" - "
+                                FontSize="24"/>
+
+                            <Label 
+                                VerticalOptions="FillAndExpand" 
+                                VerticalTextAlignment="Center" 
+                                Text="{Binding Name}" 
+                                FontSize="24"/>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
