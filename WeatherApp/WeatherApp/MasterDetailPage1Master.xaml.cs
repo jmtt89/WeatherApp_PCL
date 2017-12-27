@@ -56,7 +56,7 @@ namespace WeatherApp
                 var jsonGeoloc = await client.GetStringAsync(geolocUrl);
                 var geoObj = GeoIpMapProxy.FromJson(jsonGeoloc);
 
-                var url = "http://api.openweathermap.org/data/2.5/weather?lat="+geoObj.Lat+"&lon="+geoObj.Lon+"&APPID=8e44fd2ad82d53c04469e467010eb7b3&units=metric";
+                var url = "http://api.openweathermap.org/data/2.5/weather?lat="+geoObj.Lat+"&lon="+geoObj.Lon+ "&APPID=8e44fd2ad82d53c04469e467010eb7b3&units=metric&lang=es";
                 var jsonText = await client.GetStringAsync(url);
 
                 var data = OpenWeatherMapProxy.FromJson(jsonText);
@@ -82,7 +82,7 @@ namespace WeatherApp
                 */
 
                 Icon.Source = ImageSource.FromResource("WeatherApp.Assets.WeatherIcons." + data.Weather[0].Icon + ".png");
-
+                ListView.SelectedItem = tmp.MenuItems.First();
             }
         }
 

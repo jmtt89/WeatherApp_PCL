@@ -54,18 +54,20 @@
                 HorizontalTextAlignment="End"
                 FontSize="22"
                 x:Name="TemperatureMin"/>
+            
             <Label 
                 Grid.Column="0"
                 Grid.Row="2"
                 HorizontalTextAlignment="End"
                 FontSize="22"
                 x:Name="TemperatureMax"/>
+            
             <Label 
                 Grid.Column="1"
                 Grid.Row="1"
                 Grid.RowSpan="2"
                 Margin="15, 0, 0, 0"
-                FontSize="48"
+                FontSize="38"
                 x:Name="Temperature"/>
         </Grid>
 
